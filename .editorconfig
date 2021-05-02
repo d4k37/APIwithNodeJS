@@ -2,7 +2,7 @@
 
 # top-most EditorConfig file
 root = true
-
+/* eslint-disable linebreak-style */
 [*]
 indent_style = space
 indent_size = 4
