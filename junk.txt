@@ -5,3 +5,12 @@ app.post('/courses', (request, response) => {
 });
 
 app.get('/', (request, response) => response.json({ message: 'ola' }));
+
+//
+
+  {
+    name, description, created_at: new Date(),
+  };
+  //category.name = name;
+  category.description = description;
+  category.created_at = new Date();
