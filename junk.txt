@@ -14,3 +14,7 @@ app.get('/', (request, response) => response.json({ message: 'ola' }));
   //category.name = name;
   category.description = description;
   category.created_at = new Date();
+
+  //
+
+  import { Category } from '../model/category';
