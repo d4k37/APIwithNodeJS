@@ -2,33 +2,21 @@
 
 import { response, Router } from 'express';
 
-import { CategoriesRepository } from '../modules/cars/repositories/CategoriesRepository';
+import { CategoriesRepository } from '../modules/cars/repositories/implementations/CategoriesRepository';
+import { createCategoryController } from '../modules/cars/useCases/CreateCategory';
+import { listCategoriesController } from '../modules/cars/useCases/ListCategory';
 
-
-import { CreateCategoryService } from '../modules/cars/services/CreateCategoryService';
 
 const categoriesRoutes = Router();
-const categoriesRepository = new CategoriesRepository();
-const categories = [];
+const categoriesRepository = CategoriesRepository.getInstance();
+const categories = [] = [];
 
 categoriesRoutes.post('/', (request, response) => {
-  
-  const { name, description } = request.body;
-
-  const createCategoryService = new CreateCategoryService(categoriesRepository);
-
-  createCategoryService.execute({name, description})
-
-
-
-
-  return response.status(201).send();
+  return createCategoryController.handle(request, response);
 });
 
 categoriesRoutes.get('/', (request, response) => {
-  const all = categoriesRepository.list();
-
-  return response.json(all);
+ return listCategoriesController.handle(request, response);
 });
 // eslint-disable-next-line import/prefer-default-export
 export { categoriesRoutes };
