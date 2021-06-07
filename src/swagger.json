@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "Rentx Documentation",
+        "description": "Esse é um aluguel de api",
+        "version": "1.0.0",
+        "contact":{
+            "email":"luis.dhac@gmail.com"
+        }
+    },
+    "paths":{
+        "/categories":{
+            "post": {
+                "summary": "Cria a categoria maluco",
+                "description":"está criando uma categoria",
+                "requestBody":{
+                    "content":{"application/json":{
+                        "schema":{
+                            "type":"object",
+                            "properties":{
+                                "name": { "type":"string"},
+                                "description":{
+                                    "type":"string "
+                            }
+                            
+                            },
+                            "example":{ 
+                                "name": "testecategoria",
+                                "description":"testedescricao"
+                            }
+                        }
+                    }}
+                },
+                "responses":{
+                    "201":{
+                        "description":"criou"
+                    },
+                    "500":{
+                        "description":"categoria ja existe"
+                    }
+                }
+
+            },
+            "get":{
+                "tag":["categories"],
+                "summary": "lista de todas as categorias",
+                "description": "list all categoriesss",
+                "responses":{
+                    "200":{
+                        "description":"sucess",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "array",
+                                    "itens":{
+                                        "type":"object",
+                                        "properties":{
+                                            "name":{
+                                                 "type": "string"
+                                            },
+                                            "description":{
+                                                "type":"string "
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
