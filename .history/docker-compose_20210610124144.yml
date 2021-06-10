@@ -14,7 +14,6 @@ services:
         volumes: 
             - pgdata:/data/postgres
         network_mode: host
-
     app:
         build: .
         container_name: rentx
@@ -23,7 +22,6 @@ services:
         volumes:
             - .:/usr/app
             network_mode: host
-          
 
 
 volumes: 
